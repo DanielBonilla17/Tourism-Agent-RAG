@@ -1,0 +1,75 @@
+# ==========================================
+# Entorno Virtual y Python
+# ==========================================
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Bytecode y caches de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# ==========================================
+# Secretos y Variables de Entorno
+# ==========================================
+.env
+.env*.local
+*.key
+*.pem
+*.cert
+
+# Permitir archivo de ejemplo de variables de entorno
+!.env.example
+
+# ==========================================
+# Archivos Pesados de Mapas y Rutas (OSRM)
+# ==========================================
+# Los mapas y binarios de OSRM superan con creces los límites de GitHub (100MB+)
+osrm-data/*
+!osrm-data/.gitkeep
+!osrm-data/README.md
+
+# ==========================================
+# Bases de datos y archivos generados
+# ==========================================
+*.sqlite3
+*.db-journal
+*.log
+
+# Permitir base de datos inicial de la base de conocimiento
+!knowledge_base/*.db
+
+# ==========================================
+# Docker & Contenedores
+# ==========================================
+.docker/
+
+# ==========================================
+# IDEs y Editores del Sistema Operativo
+# ==========================================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Windows
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride

@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+
+  api:
+    build: .
+    container_name: margarita-api
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+    networks:
+      - tourism-network
+
+  redis:
+    image: redis:alpine
+    container_name: margarita-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - tourism-network
+
+  osrm:
+    image: osrm/osrm-backend
+    container_name: margarita-osrm
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./osrm-data:/data
+    command: osrm-routed --algorithm mld /data/venezuela-260426.osrm
+    networks:
+      - tourism-network
+
+networks:
+  tourism-network:
+    driver: bridge
